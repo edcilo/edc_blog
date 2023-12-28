@@ -1,0 +1,74 @@
+---
+import ProjectCard from "./ProjectCard.astro";
+
+const projects = [
+    {
+        url: 'https://www.passwordgenerator.cool/',
+        image: '/assets/portfolio/00_password.webp',
+        title: 'Password Generator',
+        description: 'A simple password generator that allows you to choose the length and type of characters to include.',
+        tags: [
+            { label: 'HTML', icon: 'html5', type: 'info'},
+            { label: 'CSS', icon: 'css', type: 'info'},
+            { label: 'JavaScript', icon: 'javascript', type: 'info'},
+            { label: 'ReactJS', icon: 'reactjs', type: 'info'},
+            { label: 'NextJS', icon: 'nextjs', type: 'info'},
+        ],
+    },
+    {
+        url: 'https://epoch.edcilo.com/',
+        image: '/assets/portfolio/01_epoch.webp',
+        title: 'Epoch Converter',
+        description: 'A simple epoch converter that converts epoch time to human readable time.',
+        tags: [
+            { label: 'HTML', icon: 'html5', type: 'info'},
+            { label: 'CSS', icon: 'css', type: 'info'},
+            { label: 'JavaScript', icon: 'javascript', type: 'info'},
+            { label: 'ReactJS', icon: 'reactjs', type: 'info'},
+            { label: 'NextJS', icon: 'nextjs', type: 'info'},
+        ],
+    }
+]
+---
+
+<div id="portfolio" class="portfolio">
+	<div class="background"></div>
+
+    <div class="content">
+        <h1>Portfolio</h1>
+
+        <div class="container">
+            {projects.map(project => (
+                <ProjectCard
+                    image={project.image}
+                    url={project.url}
+                    name={project.title}
+                    description={project.description}
+                    tags={project.tags} />
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+.portfolio {
+    @apply relative flex flex-col items-center py-16;
+
+    h1 {
+        font-family: var(--font-mono);
+        @apply mb-9 text-4xl font-medium text-center;
+    }
+
+    .background {
+        @apply z-0 absolute top-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)];
+    }
+
+    .content {
+        @apply z-10;
+    }
+
+    .container {
+        @apply max-w-screen-md columns-2;
+    }
+}
+</style>

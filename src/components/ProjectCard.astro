@@ -1,0 +1,70 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Tag = {
+    label: string;
+    icon: string;
+    type: string;
+};
+
+interface Props {
+    image: string;
+    url: string;
+    name: string;
+    description: string;
+    tags: Tag[];
+}
+
+const { image, url, name, description, tags } = Astro.props;
+---
+
+<div class="portfolio-card">
+    <a href={url} target="_blank">
+        <img class="cover" src={image} width="378" height="280" alt={`${name} cover`} />
+    </a>
+    <div class="container">
+        <a href={url} target="_blank">
+            <h5 class="title">{name}</h5>
+        </a>
+        <p class="description">{description}</p>
+        <footer>
+            {tags.map(tag => (
+                <Icon name={tag.icon} title={tag.label} />
+            ))}
+        </footer>
+    </div>
+</div>
+
+<style>
+.portfolio-card {
+    @apply max-w-sm bg-white border rounded-lg;
+    @apply dark:bg-gray-800 dark:border-gray-700;
+
+    footer {
+        @apply flex justify-end;
+
+        svg {
+            @apply mr-2;
+        }
+    }
+
+    .container {
+        @apply p-5;
+    }
+
+    .cover {
+        @apply rounded-t-md;
+    }
+
+    .title {
+        font-family: var(--font-mono);
+        @apply mb-2 text-2xl font-medium tracking-tight text-gray-900;
+        @apply dark:text-white;
+    }
+
+    .description {
+        @apply mb-3 font-normal text-gray-700;
+        @apply dark:text-gray-400;
+    }
+}
+</style>

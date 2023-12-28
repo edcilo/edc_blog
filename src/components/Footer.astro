@@ -1,0 +1,52 @@
+---
+import InlineNav from "./InlineNav.astro";
+
+const socialNav = [
+    {
+        icon: 'github',
+        label: '',
+        url: 'https://github.com/edcilo'
+    },
+    {
+        icon: 'linkedin',
+        label: '',
+        url: 'https://linkedin.com/in/edcilo'
+    },
+    {
+        icon: 'x',
+        label: '',
+        url: 'https://x.com/edcilo'
+    },
+]
+---
+
+<footer>
+    <p class="rights">
+        &copy; 2010-2024 <a href="/">edcilo.com</a>. All rights reserved.
+    </p>
+    <div class="footer-container">
+        <InlineNav items={socialNav} />
+    </div>
+</footer>
+
+<style>
+footer {
+    @apply border-t p-3 antialiased;
+    @apply sm:flex sm:items-center sm:justify-between;
+    @apply dark:bg-gray-800;
+
+    .rights {
+        @apply mb-4 text-sm text-center text-gray-500;
+        @apply sm:mb-0;
+        @apply dark:text-gray-400;
+
+        a {
+            @apply hover:underline;
+        }
+    }
+
+    .footer-container {
+        @apply flex justify-center items-center space-x-1;
+    }
+}
+</style>

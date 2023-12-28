@@ -1,0 +1,53 @@
+---
+import { Icon } from 'astro-icon/components';
+
+type Item = {
+    icon?: string;
+    label: string;
+    url: string;
+}
+
+interface Props {
+	items: Item[];
+}
+
+const { items } = Astro.props;
+---
+
+<nav class="inline-nav">
+    <ul class="flex">
+        {items.map(item => (
+            <li>
+                <a href={item.url}>
+                    {item.icon && <Icon name={item.icon} />}
+                    {item.icon && item.label && <span class="blank"></span>}
+                    {item.label}
+                </a>
+            </li>
+        ))}
+    </ul>
+</nav>
+
+<style>
+    .inline-nav {
+        ul {
+            li {
+                @apply px-2 mx-2;
+
+                a {
+                    font-family: var(--font-mono);
+                    @apply text-gray-700 font-medium flex items-center;
+                    @apply hover:text-gray-900;
+
+                    &:hover {
+                        @apply underline;
+                    }
+
+                    .blank {
+                        @apply inline-block px-1;
+                    }
+                }
+            }
+        }
+    }
+</style>

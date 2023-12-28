@@ -1,0 +1,156 @@
+---
+import SkillCard from "./SkillCard.astro";
+
+const skills = [
+    {
+        title: "Backend",
+        techs: [
+            {
+                name: "go",
+                icon: "go",
+                libraries: [
+                    { name: "fiber", icon: "fiber" },
+                ],
+            },
+            {
+                name: "python",
+                icon: "python",
+                libraries: [
+                    { name: "flask", icon: "flask" },
+                    { name: "fastapi", icon: "fastapi" },
+                    { name: "django", icon: "django" },
+                ],
+            },
+            {
+                name: "javascript",
+                icon: "javascript",
+                libraries: [
+                    { name: "node", icon: "node" },
+                    { name: "deno", icon: "deno" },
+                    { name: "bun", icon: "bun" },
+                    { name: "express", icon: "express" },
+                    { name: "astro", icon: "astro" },
+                ],
+            },
+            {
+                name: "php",
+                icon: "php",
+                libraries: [
+                    { name: "laravel", icon: "laravel" },
+                ]
+            },
+        ],
+    },
+    {
+        title: "Frontend",
+        techs: [
+            {
+                name: "html",
+                icon: "html5",
+                libraries: [],
+            },
+            {
+                name: "css",
+                icon: "css",
+                libraries: [
+                    { name: "sass", icon: "sass" },
+                    { name: "tailwind", icon: "tailwind" },
+                ],
+            },
+            {
+                name: "javascript",
+                icon: "javascript",
+                libraries: [
+                    { name: "typescript", icon: "typescript" },
+                    { name: "react", icon: "reactjs" },
+                    { name: "vue", icon: "vue" },
+                    { name: "nextjs", icon: "nextjs" },
+                ],
+            },
+        ],
+    },
+    {
+        title: "DB",
+        techs: [
+            {
+                name: "Postgres",
+                icon: "postgres",
+            },
+            {
+                name: "MySQL",
+                icon: "mysql",
+            },
+            {
+                name: "MongoDB",
+                icon: "mongodb",
+            },
+            {
+                name: "Redis",
+                icon: "redis",
+            },
+        ],
+    },
+    {
+        title: "SRE",
+        techs: [
+            {
+                name: "Docker",
+                icon: "docker",
+            },
+            {
+                name: "Kubernetes",
+                icon: "kubernetes",
+            },
+            {
+                name: "AWS",
+                icon: "aws",
+            },
+        ],
+    }
+]
+---
+
+<div id="skills" class="skills">
+    <h1>Skills</h1>
+
+    <div class="container">
+        <div class="grid">
+            {skills.map(skill => (
+                <div class="skill">
+                    <SkillCard title={skill.title} techs={skill.techs} />
+                </div>
+            ))}
+        </div>
+    </div>
+</div>
+
+<style>
+    .skills {
+        @apply relative flex flex-col items-center py-16 border-b;
+
+        h1 {
+            font-family: var(--font-mono);
+            @apply my-9 text-4xl font-medium text-center;
+        }
+
+        .container {
+            @apply max-w-screen-md;
+        }
+
+        .skill {
+            @apply border-b border-dashed;
+
+            &:nth-child(odd) {
+                @apply border-r;
+            }
+
+            &:nth-last-child(-n+2) {
+                @apply border-b-0;
+            }
+        }
+
+        .grid {
+            @apply grid-cols-2 gap-0;
+        }
+    }
+    </style>

@@ -1,0 +1,53 @@
+---
+import InlineNav from './InlineNav.astro';
+
+const siteNav = [
+    {
+        label: 'Skills',
+        url: '#skills'
+    },
+    {
+        label: 'Portfolio',
+        url: '#portfolio'
+    },
+    {
+        label: 'Blog',
+        url: '#'
+    },
+]
+const socialNav = [
+    {
+        icon: 'github',
+        label: '',
+        url: 'https://github.com/edcilo'
+    },
+    {
+        icon: 'linkedin',
+        label: '',
+        url: 'https://linkedin.com/in/edcilo'
+    },
+    {
+        icon: 'x',
+        label: '',
+        url: 'https://x.com/edcilo'
+    },
+]
+---
+
+<header class="header">
+    <h1 class="mx-2">
+        <a href="/">
+            <img src="/assets/edcilo.svg" width="100" height="32" />
+        </a>
+    </h1>
+
+    <InlineNav items={siteNav} />
+
+    <InlineNav items={socialNav} />
+</header>
+
+<style>
+    .header {
+        @apply flex justify-between items-center p-3 border-b;
+    }
+</style>
