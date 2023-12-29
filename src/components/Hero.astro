@@ -5,7 +5,7 @@ import ELogo from "./ELogo.astro";
 const me = {
     name: "Eduardo Cifuentes López",
     title: "Fullstack Developer",
-    description: "I'm a fullstack developer with 5+ years of experience building web applications. I'm currently working at Flowbite as a frontend developer.",
+    description: "Apasionado por aprender y experimentar.",
     expierence: 12,
 }
 
@@ -13,6 +13,10 @@ const me = {
 
 <section class="hero">
     <div class="container">
+        <div class="e">
+            <ELogo />
+        </div>
+
         <div class="jumbotron">
             <Badge type="success">{me.title}</Badge>
             <h1>{me.name}</h1>
@@ -20,13 +24,9 @@ const me = {
             <ul class="skills">
                 <li>
                     <span>{me.expierence}</span>
-                    years <br /> expierence
+                    Años de <br /> experiencia
                 </li>
             </ul>
-        </div>
-
-        <div class="e">
-            <ELogo />
         </div>
 
         <div class="cucu">
@@ -37,40 +37,48 @@ const me = {
 
 <style>
 .hero {;
-    @apply bg-white dark:bg-gray-900 overflow-hidden;
+    @apply overflow-hidden flex justify-center;
 
     .container {
-        @apply py-8 px-4 mx-auto max-w-screen-xl lg:py-16 relative flex justify-between items-center;
+        @apply relative flex items-center justify-center md:justify-between;
+        @apply py-8 px-4 max-w-screen-xl;
 
         .jumbotron {
-            @apply w-1/3 z-10 relative;
+            @apply relative z-0 w-2/3 text-center;
+            @apply md:w-1/2 md:text-left;
 
             h1 {
                 font-family: var(--font-mono);
-                @apply mb-4 text-2xl font-medium tracking-tight leading-none text-gray-900 md:text-3xl lg:text-4xl dark:text-white;
+                @apply mt-3 mb-4 text-2xl font-medium tracking-tight leading-none text-gray-900;
+                @apply md:text-3xl lg:text-4xl;
+                @apply dark:!text-slate-100;
             }
 
             .resume {
-                @apply mb-16 text-lg font-normal text-gray-500 lg:text-xl dark:text-gray-400 text-pretty;
+                @apply mb-8 text-lg font-normal text-gray-500 text-pretty;
+                @apply lg:text-xl;
+                @apply dark:!text-gray-400;
             }
 
             .skills {
-                @apply uppercase;
+                @apply uppercase text-sm text-gray-400;
+                @apply dark:!text-zinc-600;
 
                 span {
-                    @apply float-left text-5xl mr-2;
+                    @apply float-left mr-2 text-4xl;
                 }
             }
         }
 
         .cucu {
-            @apply top-0 z-0;
+            @apply z-0 hidden;
+            @apply md:block;
         }
 
         .e {
-            left: -240px;
-            top: -100px;
-            @apply absolute z-0 w-9/12;
+            @apply absolute z-0;
+            @apply w-[900px] top-[-150px] left-[-100px];
+            @apply md:w-[1000px] md:top-[-100px] left-[-240px];
         }
     }
 }
