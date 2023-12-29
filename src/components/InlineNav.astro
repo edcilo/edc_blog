@@ -18,7 +18,7 @@ const { items } = Astro.props;
     <ul class="flex">
         {items.map(item => (
             <li>
-                <a href={item.url}>
+                <a href={item.url} class="link">
                     {item.icon && <Icon name={item.icon} />}
                     {item.icon && item.label && <span class="blank"></span>}
                     {item.label}
@@ -29,25 +29,21 @@ const { items } = Astro.props;
 </nav>
 
 <style>
-    .inline-nav {
-        ul {
-            li {
-                @apply px-2 mx-2;
-
-                a {
-                    font-family: var(--font-mono);
-                    @apply text-gray-700 font-medium flex items-center;
-                    @apply hover:text-gray-900;
-
-                    &:hover {
-                        @apply underline;
-                    }
-
-                    .blank {
-                        @apply inline-block px-1;
-                    }
-                }
-            }
-        }
+.inline-nav {
+    li {
+        @apply px-2 mx-2;
     }
+
+    .link {
+        font-family: var(--font-mono);
+        @apply flex items-center;
+        @apply font-medium hover:underline;
+        @apply text-slate-700 hover:text-slate-900;
+        @apply dark:!text-slate-300 dark:hover:!text-gray-100; /* FIX: remove ! importantn modifier */
+    }
+
+    .blank {
+        @apply inline-block px-1;
+    }
+}
 </style>

@@ -1,5 +1,7 @@
 ---
+import DarkMode from './DarkMode.astro';
 import InlineNav from './InlineNav.astro';
+import Logo from './Logo.astro';
 
 const siteNav = [
     {
@@ -37,17 +39,36 @@ const socialNav = [
 <header class="header">
     <h1 class="mx-2">
         <a href="/">
-            <img src="/assets/edcilo.svg" width="100" height="32" />
+            <Logo />
         </a>
     </h1>
 
-    <InlineNav items={siteNav} />
+    <div class="nav">
+        <InlineNav items={siteNav} />
+    </div>
 
-    <InlineNav items={socialNav} />
+    <div class="tools">
+        <InlineNav items={socialNav} />
+
+        <DarkMode />
+    </div>
 </header>
 
 <style>
     .header {
-        @apply flex justify-between items-center p-3 border-b;
+        @apply sticky z-30 top-0;
+        @apply flex justify-between flex-row;
+        @apply p-3 border-b bg-white/80 backdrop-blur-sm backdrop-saturate-200;
+        @apply dark:border-zinc-700 dark:bg-zinc-950/80;
+        @apply md:justify-between md:flex-row;
+
+        .nav {
+            @apply hidden;
+            @apply md:flex items-center;
+        }
+
+        .tools {
+            @apply flex items-center;
+        }
     }
 </style>
