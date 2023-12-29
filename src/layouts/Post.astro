@@ -1,0 +1,100 @@
+---
+import { format } from 'date-fns';
+import Badge from '../components/Badge.astro';
+import UserPin from '../components/UserPin.astro';
+import Layout from "./Layout.astro";
+
+interface Props {
+    title: string;
+    frontmatter: {
+        title: string;
+        pubDate: Date;
+        author: {
+            name: string;
+            email: string;
+            avatar: string;
+        }
+        tags: string[];
+    }
+}
+
+const { title, frontmatter } = Astro.props;
+---
+
+<Layout title={title}>
+    <div class="post">
+        <article class="container">
+            <h1>{frontmatter.title}</h1>
+            <UserPin {...frontmatter.author} />
+
+            <div class="tools">
+                <span class="published_at" data-tooltip-target="tooltip-published-on">
+                    Published on:
+                    {format(frontmatter.pubDate, 'y-MM-dd')}
+                </span>
+            </div>
+
+            <div class="content">
+                <slot />
+            </div>
+
+            <div class="tags">
+                {frontmatter.tags.map(tag => (
+                    <Badge type="info">{tag}</Badge>
+                ))}
+            </div>
+        </article>
+    </div>
+</Layout>
+
+<style is:global>
+.post {
+    @apply flex justify-center;
+
+    .container {
+        @apply w-full max-w-2xl px-2 py-8;
+    }
+
+    h1 {
+        font-family: var(--font-mono);
+        @apply text-4xl font-bold mb-4;
+    }
+
+    .tools {
+        @apply flex justify-between items-center mt-4 mb-8 py-3 border-t border-b;
+    }
+
+    .published_at {
+        @apply text-gray-500 text-sm;
+    }
+
+    .tags {
+        @apply mt-12;
+    }
+
+    .content {
+        p {
+            @apply mb-4;
+        }
+
+        ul {
+            @apply mb-4;
+        }
+
+        li {
+            @apply list-disc ml-6 mb-2;
+        }
+
+        p code,
+        li code {
+            font-family: var(--font-mono);
+            @apply bg-gray-100 rounded px-2 py-1 text-rose-600;
+        }
+
+        pre {
+            font-family: var(--font-mono);
+            @apply rounded px-2 py-1 mb-4;
+        }
+    }
+}
+</style>

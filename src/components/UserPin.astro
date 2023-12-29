@@ -1,0 +1,49 @@
+---
+interface Props {
+    name: string;
+    email: string;
+    avatar: string;
+}
+
+const { name, email, avatar } = Astro.props;
+---
+
+<div class="user-pin">
+    <div class="avatar">
+        <img src={avatar} alt={name}>
+    </div>
+    <div class="info">
+        <p class="title">
+            {name}
+        </p>
+        <p class="meta">
+            {email}
+        </p>
+    </div>
+</div>
+
+<style>
+.user-pin {
+    @apply flex items-center;
+
+    .avatar {
+        @apply flex-shrink-0;
+
+        img {
+            @apply size-8 rounded-full;
+        }
+    }
+
+    .info {
+        @apply flex-1 min-w-0 ms-4;
+
+        .title {
+            @apply text-sm font-medium text-gray-900 truncate dark:text-white;
+        }
+
+        .meta {
+            @apply text-sm text-gray-500 truncate dark:text-gray-400;
+        }
+    }
+}
+</style>

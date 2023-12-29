@@ -1,0 +1,49 @@
+---
+
+interface Props {
+    url: string;
+    title: string;
+    description: string;
+    image: {
+        url: string;
+        alt: string;
+    };
+}
+
+const { url, title, description, image } = Astro.props;
+---
+<a href={url} class="">
+    <div class="card">
+        <img class="rounded-t-lg" src={image.url} alt={image.alt} />
+        <div class="content">
+            <h5 class="title">
+                {title}
+            </h5>
+            <p class="resume">
+                {description}
+            </p>
+        </div>
+    </div>
+</a>
+
+<style>
+a {
+    @apply block;
+}
+
+.card {
+    @apply max-w-sm bg-white border rounded-lg hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700;
+
+    .content {
+        @apply p-4;
+    }
+
+    .title {
+        @apply mb-3 text-2xl font-bold tracking-tight text-gray-900 dark:text-white;
+    }
+
+    .resume {
+        @apply font-normal text-gray-700 dark:text-gray-400;
+    }
+}
+</style>

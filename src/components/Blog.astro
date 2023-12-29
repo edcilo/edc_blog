@@ -1,0 +1,43 @@
+---
+import ArticleCard from "./ArticleCard.astro";
+const allPosts = await Astro.glob('../pages/posts/*.md');
+const recentPosts = allPosts.slice(0, 4);
+
+console.log(recentPosts[0].frontmatter.author);
+---
+
+<div id="blog" class="blog">
+    <h1>Blog</h1>
+
+    <div class="container">
+        <div class="grid">
+            {recentPosts.map(post => (
+                <ArticleCard
+                    url={post.url || '/'}
+                    title={post.frontmatter.title}
+                    description={post.frontmatter.resume}
+                    image={post.frontmatter.image} />
+            ))}
+        </div>
+    </div>
+</div>
+
+
+<style>
+    .blog {
+        @apply relative flex flex-col items-center py-16 border-b;
+
+        h1 {
+            font-family: var(--font-mono);
+            @apply my-9 text-4xl font-medium text-center;
+        }
+
+        .container {
+            @apply max-w-screen-md;
+        }
+
+        .grid {
+            @apply grid-cols-2 gap-4;
+        }
+    }
+</style>
