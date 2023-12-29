@@ -25,17 +25,17 @@ const { title, techs } = Astro.props;
         {techs.map(tech => (
             <div class="tech">
                 <div>
-                    <Icon title={tech.name} name={tech.icon} />
+                    <Icon title={tech.name} class="tech-icon" name={tech.icon} />
                 </div>
-                <div class="libraries">
+                {tech.libraries && <div class="libraries">
                     {tech.libraries?.map(library => {
                         return (
                             <div class="library">
-                                <Icon title={library.name} name={library.icon} />
+                                <Icon title={library.name} class="library-icon" name={library.icon} />
                             </div>
                         )
                     })}
-                </div>
+                </div>}
             </div>
         ))}
     </div>
@@ -48,6 +48,7 @@ const { title, techs } = Astro.props;
     h2 {
         font-family: var(--font-mono);
         @apply text-center font-semibold;
+        @apply dark:text-slate-100;
     }
 
     .container {
@@ -57,17 +58,19 @@ const { title, techs } = Astro.props;
     .tech {
         @apply flex flex-col items-center mb-3;
 
-        svg {
+        .tech-icon {
             @apply size-12 mb-1;
+            @apply text-zinc-900;
+            @apply dark:!text-slate-100;
         }
 
         .libraries {
             @apply flex gap-1;
+            @apply bg-slate-200 rounded-sm p-1;
+            @apply dark:!bg-zinc-700;
 
-            .library {
-                svg {
-                    @apply size-4;
-                }
+            .library-icon {
+                @apply size-4;
             }
         }
     }

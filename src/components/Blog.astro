@@ -24,18 +24,21 @@ const recentPosts = allPosts.slice(0, 4);
 <style>
     .blog {
         @apply relative flex flex-col items-center py-16 border-b;
+        @apply dark:border-zinc-700;
 
         h1 {
             font-family: var(--font-mono);
             @apply my-9 text-4xl font-medium text-center;
+            @apply dark:!text-slate-100;
         }
 
         .container {
-            @apply max-w-screen-md;
+            @apply max-w-screen-md px-4 flex justify-center;
         }
 
         .grid {
-            @apply grid-cols-2 gap-4;
+            @apply grid-cols-1 content-center gap-4;
+            @apply md:grid-cols-2;
         }
     }
 </style>

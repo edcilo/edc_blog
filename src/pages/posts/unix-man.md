@@ -18,7 +18,7 @@ El comando `man` es una utilidad de sistemas operativos Unix, como Linux y macOS
 
 Sintaxis:
 
-```txt
+```
 man <command>
 ```
 
@@ -30,7 +30,7 @@ man ls
 
 Salida:
 
-```txt
+```
 NAME
      ls – list directory contents
 

@@ -6,7 +6,7 @@ const projects = [
         url: 'https://www.passwordgenerator.cool/',
         image: '/assets/portfolio/00_password.webp',
         title: 'Password Generator',
-        description: 'A simple password generator that allows you to choose the length and type of characters to include.',
+        description: 'Un generador de contraseñas sencillo que te permite elegir la longitud y el tipo de caracteres a incluir.',
         tags: [
             { label: 'HTML', icon: 'html5', type: 'info'},
             { label: 'CSS', icon: 'css', type: 'info'},
@@ -19,7 +19,7 @@ const projects = [
         url: 'https://epoch.edcilo.com/',
         image: '/assets/portfolio/01_epoch.webp',
         title: 'Epoch Converter',
-        description: 'A simple epoch converter that converts epoch time to human readable time.',
+        description: 'Un sencillo conversor de época que convierte el tiempo de época a tiempo legible por humanos.',
         tags: [
             { label: 'HTML', icon: 'html5', type: 'info'},
             { label: 'CSS', icon: 'css', type: 'info'},
@@ -35,7 +35,7 @@ const projects = [
 	<div class="background"></div>
 
     <div class="content">
-        <h1>Portfolio</h1>
+        <h1>Porfolio</h1>
 
         <div class="container">
             {projects.map(project => (
@@ -56,11 +56,14 @@ const projects = [
 
     h1 {
         font-family: var(--font-mono);
-        @apply mb-9 text-4xl font-medium text-center;
+        @apply my-9 text-4xl font-medium text-center;
+        @apply dark:!text-slate-100;
     }
 
     .background {
-        @apply z-0 absolute top-0 h-full w-full bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_70%,transparent_100%)];
+        @apply z-0 absolute top-0 h-full w-full;
+        @apply bg-[radial-gradient(#e5e7eb_1px,transparent_1px)] [background-size:16px_16px] [mask-image:radial-gradient(ellipse_50%_50%_at_50%_50%,#000_60%,transparent_100%)];
+        @apply dark:!bg-[radial-gradient(#3f3f45_1px,transparent_1px)]
     }
 
     .content {
@@ -68,7 +71,8 @@ const projects = [
     }
 
     .container {
-        @apply max-w-screen-md columns-2;
+        @apply max-w-screen-md columns-1 gap-4;
+        @apply md:columns-2;
     }
 }
 </style>

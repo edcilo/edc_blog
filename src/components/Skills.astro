@@ -27,9 +27,8 @@ const skills = [
                 libraries: [
                     { name: "node", icon: "node" },
                     { name: "deno", icon: "deno" },
-                    { name: "bun", icon: "bun" },
-                    { name: "express", icon: "express" },
                     { name: "astro", icon: "astro" },
+                    { name: "express", icon: "express" },
                 ],
             },
             {
@@ -47,14 +46,13 @@ const skills = [
             {
                 name: "html",
                 icon: "html5",
-                libraries: [],
             },
             {
                 name: "css",
                 icon: "css",
                 libraries: [
-                    { name: "sass", icon: "sass" },
                     { name: "tailwind", icon: "tailwind" },
+                    { name: "sass", icon: "sass" },
                 ],
             },
             {
@@ -111,7 +109,7 @@ const skills = [
 ---
 
 <div id="skills" class="skills">
-    <h1>Skills</h1>
+    <h1>Habilidades</h1>
 
     <div class="container">
         <div class="grid">
@@ -127,30 +125,38 @@ const skills = [
 <style>
     .skills {
         @apply relative flex flex-col items-center py-16 border-b;
+        @apply dark:border-zinc-700;
 
         h1 {
             font-family: var(--font-mono);
             @apply my-9 text-4xl font-medium text-center;
+            @apply dark:!text-slate-100;
         }
 
         .container {
-            @apply max-w-screen-md;
+            @apply max-w-screen-md px-4 flex justify-center;
+        }
+
+        .grid {
+            @apply grid-cols-1 gap-0;
+            @apply md:grid-cols-2;
         }
 
         .skill {
             @apply border-b border-dashed;
+            @apply dark:border-zinc-700;
 
             &:nth-child(odd) {
-                @apply border-r;
+                @apply md:border-r;
+            }
+
+            &:nth-last-child(1) {
+                @apply border-b-0;
             }
 
             &:nth-last-child(-n+2) {
-                @apply border-b-0;
+                @apply md:border-b-0;
             }
-        }
-
-        .grid {
-            @apply grid-cols-2 gap-0;
         }
     }
 </style>

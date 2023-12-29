@@ -37,34 +37,38 @@ const { image, url, name, description, tags } = Astro.props;
 
 <style>
 .portfolio-card {
-    @apply max-w-sm bg-white border rounded-lg;
-    @apply dark:bg-gray-800 dark:border-gray-700;
+    @apply max-w-sm bg-white border rounded-lg mb-4;
+    @apply dark:bg-zinc-950 dark:border-zinc-700;
 
     footer {
         @apply flex justify-end;
 
         svg {
             @apply mr-2;
+
+            &:last-child {
+                @apply mr-0;
+            }
         }
     }
 
     .container {
-        @apply p-5;
+        @apply p-4;
     }
 
     .cover {
-        @apply rounded-t-md;
+        @apply rounded-t-lg w-full;
     }
 
     .title {
         font-family: var(--font-mono);
-        @apply mb-2 text-2xl font-medium tracking-tight text-gray-900;
-        @apply dark:text-white;
+        @apply mb-3 text-xl font-semibold tracking-tight text-gray-900;
+        @apply dark:!text-slate-100;
     }
 
     .description {
         @apply mb-3 font-normal text-gray-700;
-        @apply dark:text-gray-400;
+        @apply dark:!text-slate-500;
     }
 }
 </style>
