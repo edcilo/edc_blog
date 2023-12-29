@@ -8,7 +8,7 @@ author:
     email: 'me@edcilo.com'
     avatar: '/assets/writters/e.svg'
 image:
-    url: '/assets/posts/unix-man.png'
+    url: '/assets/posts/unix-man.webp'
     alt: 'The man command.'
 tags: ["bash", "command"]
 resume: Utilidad Unix/Linux/macOS que muestra documentación de comandos/programas, incluyendo uso, opciones y ejemplos.

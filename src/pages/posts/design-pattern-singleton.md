@@ -8,7 +8,7 @@ author:
     email: 'me@edcilo.com'
     avatar: '/assets/writters/e.svg'
 image:
-    url: '/assets/posts/design-pattern-singleton.png'
+    url: '/assets/posts/design-pattern-singleton.webp'
     alt: 'Singleto post cover.'
 tags: ["design-pattern", "singleton"]
 resume: El Singleton garantiza una única instancia de clase accesible globalmente, útil para bases de datos y configuraciones.
