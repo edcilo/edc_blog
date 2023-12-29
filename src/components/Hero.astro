@@ -23,8 +23,13 @@ const me = {
             <p class="resume">{me.description}</p>
             <ul class="skills">
                 <li>
-                    <span>{me.expierence}</span>
-                    Años de <br /> experiencia
+                    <span>{me.expierence}</span> <br />
+                    <div>
+                        Años de exp.
+                    </div>
+                </li>
+                <li>
+                    <span>+20</span> <br /> proyectos
                 </li>
             </ul>
         </div>
@@ -61,11 +66,17 @@ const me = {
             }
 
             .skills {
-                @apply uppercase text-sm text-gray-400;
+                @apply flex justify-center gap-8;
+                @apply uppercase text-xs text-gray-400 text-left;
+                @apply md:justify-start;
                 @apply dark:!text-zinc-600;
 
+                li {
+                    @apply text-center;
+                }
+
                 span {
-                    @apply float-left mr-2 text-4xl;
+                    @apply mr-2 text-4xl;
                 }
             }
         }
