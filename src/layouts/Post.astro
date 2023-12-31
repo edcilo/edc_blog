@@ -50,6 +50,8 @@ const { title, frontmatter } = Astro.props;
 <style is:global>
 .post {
     @apply flex justify-center;
+    @apply text-black;
+    @apply dark:!text-slate-100;
 
     .container {
         @apply w-full max-w-2xl px-2 py-8;
