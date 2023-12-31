@@ -38,7 +38,8 @@ const { name, email, avatar } = Astro.props;
         @apply flex-1 min-w-0 ms-4;
 
         .title {
-            @apply text-sm font-medium text-gray-900 truncate dark:text-white;
+            @apply text-sm font-medium text-gray-900 truncate;
+            @apply dark:!text-slate-100;
         }
 
         .meta {
