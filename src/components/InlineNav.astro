@@ -18,7 +18,7 @@ const { items } = Astro.props;
     <ul class="flex">
         {items.map(item => (
             <li>
-                <a href={item.url} class="link">
+                <a href={item.url} class="link" aria-label={item.label ? item.label : item.icon}>
                     {item.icon && <Icon name={item.icon} />}
                     {item.icon && item.label && <span class="blank"></span>}
                     {item.label}
