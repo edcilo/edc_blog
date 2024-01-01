@@ -1,10 +1,12 @@
 ---
+import { Icon } from 'astro-icon/components';
 import Badge from "./Badge.astro";
 import ELogo from "./ELogo.astro";
 
 const me = {
     name: "Eduardo Cifuentes López",
     title: "Fullstack Developer",
+    location: "Ciudad de México",
     description: "Apasionado por aprender y experimentar.",
     expierence: 12,
 }
@@ -20,6 +22,10 @@ const me = {
         <div class="jumbotron">
             <Badge type="success">{me.title}</Badge>
             <h1>{me.name}</h1>
+            <p class="location">
+                <Icon name="pin-map" />
+                {me.location}
+            </p>
             <p class="resume">{me.description}</p>
             <ul class="skills">
                 <li>
@@ -37,6 +43,8 @@ const me = {
         <div class="cucu">
             <img src="/assets/cat.svg" width="550" height="550" alt="cucu cat" />
         </div>
+
+        <Icon class="scroll-icon" name="scroll" />
     </div>
 </section>
 
@@ -54,9 +62,15 @@ const me = {
 
             h1 {
                 font-family: var(--font-mono);
-                @apply mt-3 mb-4 text-2xl font-medium tracking-tight leading-none text-gray-900;
+                @apply mt-3 mb-1 text-2xl font-medium tracking-tight leading-none text-gray-900;
                 @apply md:text-3xl lg:text-4xl;
                 @apply dark:!text-slate-100;
+            }
+
+            .location {
+                @apply flex gap-1 items-center;
+                @apply mb-3 text-sm text-zinc-500;
+                @apply dark:text-zinc-400;
             }
 
             .resume {
@@ -66,7 +80,7 @@ const me = {
             }
 
             .skills {
-                @apply flex justify-center gap-8;
+                @apply flex justify-center gap-8 mb-4;
                 @apply uppercase text-xs text-gray-400 text-left;
                 @apply md:justify-start;
                 @apply dark:!text-zinc-600;
@@ -90,6 +104,12 @@ const me = {
             @apply absolute z-0;
             @apply w-[900px] top-[-150px] left-[-100px];
             @apply md:w-[1000px] md:top-[-100px] left-[-240px];
+        }
+
+        .scroll-icon {
+            @apply absolute bottom-1 left-1/2 -translate-x-1/2;
+            @apply size-8;
+            @apply dark:!text-slate-100;
         }
     }
 }
