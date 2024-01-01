@@ -6,7 +6,7 @@ const ga4Id = config.ga4.id;
 
 <!-- Google tag (gtag.js) -->
 <script async src={`https://www.googletagmanager.com/gtag/js?id=G-${ga4Id}`}></script>
-<script is:inline>
+<script is:inline define:vars={{ ga4Id }}>
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
