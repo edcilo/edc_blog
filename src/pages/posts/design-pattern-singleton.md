@@ -10,7 +10,7 @@ author:
 image:
     url: '/assets/posts/design-pattern-singleton.webp'
     alt: 'Singleto post cover.'
-tags: ["design-pattern", "singleton"]
+tags: ["design-pattern", "creational"]
 resume: El Singleton garantiza una única instancia de clase accesible globalmente, útil para bases de datos y configuraciones.
 ---
 
