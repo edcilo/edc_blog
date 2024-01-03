@@ -58,7 +58,7 @@ const { title, frontmatter } = Astro.props;
     }
 
     h1 {
-        @apply font-mono text-4xl font-bold mb-4;
+        @apply font-mono font-bold text-balance tracking-tighter text-4xl mb-4;
     }
 
     .tools {
@@ -74,12 +74,14 @@ const { title, frontmatter } = Astro.props;
     }
 
     .content {
+        @apply leading-loose text-pretty;
+
         h2 {
-            @apply text-2xl font-bold mt-6 mb-4;
+            @apply text-2xl font-bold mt-10 mb-4;
         }
 
         h3 {
-            @apply text-xl font-bold mt-6 mb-4;
+            @apply text-xl font-bold mt-8 mb-4;
         }
 
         p {
@@ -91,7 +93,7 @@ const { title, frontmatter } = Astro.props;
         }
 
         li {
-            @apply list-disc ml-6 mb-2;
+            @apply list-disc list-inside;
         }
 
         p code,
