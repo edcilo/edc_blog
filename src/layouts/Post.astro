@@ -58,8 +58,7 @@ const { title, frontmatter } = Astro.props;
     }
 
     h1 {
-        font-family: var(--font-mono);
-        @apply text-4xl font-bold mb-4;
+        @apply font-mono text-4xl font-bold mb-4;
     }
 
     .tools {
@@ -97,13 +96,11 @@ const { title, frontmatter } = Astro.props;
 
         p code,
         li code {
-            font-family: var(--font-mono);
-            @apply bg-gray-100 rounded px-2 py-1 text-rose-600;
+            @apply font-mono bg-gray-100 rounded px-2 py-1 text-rose-600;
         }
 
         pre {
-            font-family: var(--font-mono);
-            @apply rounded px-2 py-1 mb-4;
+            @apply font-mono rounded px-2 py-1 mb-4;
         }
     }
 }

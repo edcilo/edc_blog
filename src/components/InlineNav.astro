@@ -35,9 +35,8 @@ const { items } = Astro.props;
     }
 
     .link {
-        font-family: var(--font-mono);
         @apply flex items-center;
-        @apply font-medium hover:underline;
+        @apply font-mono font-medium hover:underline;
         @apply text-slate-700 hover:text-slate-900;
         @apply dark:!text-slate-300 dark:hover:!text-gray-100; /* FIX: remove ! importantn modifier */
     }
