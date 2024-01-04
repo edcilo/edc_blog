@@ -1,4 +1,5 @@
 ---
+import { Icon } from 'astro-icon/components';
 import InlineNav from "./InlineNav.astro";
 
 const socialNav = [
@@ -18,27 +19,81 @@ const socialNav = [
         url: 'https://x.com/edcilo'
     },
 ]
+
+const poweredBy = [
+    {
+        icon: 'cloudflare',
+        url: 'https://www.cloudflare.com/',
+        label: 'cloudflare',
+    },
+    {
+        icon: 'netlify',
+        url: 'https://www.netlify.com/',
+        label: 'netlify',
+    },
+    {
+        icon: 'astro',
+        url: 'https://astro.build/',
+        label: 'astro',
+    },
+    {
+        icon: 'html5',
+        url: 'https://html.spec.whatwg.org/',
+        label: 'html',
+    },
+    {
+        icon: 'css',
+        url: 'https://www.w3.org/Style/CSS/',
+        label: 'css',
+    },
+    {
+        icon: 'tailwind',
+        url: 'https://tailwindcss.com/',
+        label: 'tailwind',
+    },
+    {
+        icon: 'javascript',
+        url: 'https://www.ecma-international.org/publications-and-standards/standards/ecma-262/',
+        label: 'javascript',
+    },
+    {
+        icon: 'typescript',
+        url: 'https://www.typescriptlang.org/',
+        label: 'typescript',
+    },
+]
 ---
 
 <footer>
-    <p class="rights">
-        &copy; 2010-2024 <a href="/">edcilo.com</a>. All rights reserved.
-    </p>
     <div class="footer-container">
         <InlineNav items={socialNav} />
+    </div>
+    <div class="about-container">
+        <p class="rights">&copy; 2010-2024 <a href="/">edcilo.com</a>. All rights reserved.</p>
+        <span class="powered-by">
+            {poweredBy.map(tech => (
+                <a href={tech.url} target="_blank" title={tech.label} aria-label={tech.label}>
+                    <Icon class="icon" name={tech.icon} />
+                </a>
+            ))}
+        </span>
     </div>
 </footer>
 
 <style>
 footer {
-    @apply border-t p-3 antialiased;
+    @apply border-t p-3 pb-6 antialiased;
     @apply bg-white;
     @apply sm:flex sm:items-center sm:justify-between;
     @apply dark:border-zinc-700 dark:bg-zinc-950;
 
+    a {
+        @apply !cursor-pointer;
+    }
+
     .rights {
-        @apply mb-4 text-sm text-center text-gray-500;
-        @apply sm:mb-0;
+        @apply mb-1 text-sm text-center text-gray-500;
+        @apply sm:text-right;
         @apply dark:!text-slate-600;
 
         a {
@@ -46,8 +101,18 @@ footer {
         }
     }
 
+    .powered-by {
+        @apply flex justify-center gap-2 mt-1;
+        @apply sm:justify-end;
+
+        .icon {
+            @apply size-4;
+        }
+    }
+
     .footer-container {
-        @apply flex justify-center items-center space-x-1;
+        @apply flex justify-center items-center space-x-1 mb-6;
+        @apply sm:justify-start;
     }
 }
 </style>
