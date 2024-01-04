@@ -1,0 +1,27 @@
+---
+const logoUrl = "https://storage.edcilo.com/edcilo-logo-dark.svg";
+
+import Container from "./Container.astro";
+import Logo from "./Logo.astro";
+---
+
+<header>
+    <Container>
+        <Logo />
+    </Container>
+</header>
+
+<style>
+header {
+    padding: var(--padding-base);
+    position: fixed;
+    width: 100%;
+    z-index: 900;
+    background-image: radial-gradient(
+        rgba(0, 0, 0, 0) 1px,
+        var(--color-secondary) 1px
+    );
+    background-size: 4px 4px;
+    backdrop-filter: blur(3px);
+}
+</style>

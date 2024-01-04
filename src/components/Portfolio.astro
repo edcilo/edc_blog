@@ -3,6 +3,19 @@ import ProjectCard from "./ProjectCard.astro";
 
 const projects = [
     {
+        url: 'https://epoch.edcilo.com/',
+        image: '/assets/portfolio/01_epoch.webp',
+        title: 'Epoch Converter',
+        description: 'Un sencillo conversor de época que convierte el tiempo de época a tiempo legible por humanos.',
+        tags: [
+            { label: 'HTML', icon: 'html5', type: 'info'},
+            { label: 'CSS', icon: 'css', type: 'info'},
+            { label: 'JavaScript', icon: 'javascript', type: 'info'},
+            { label: 'ReactJS', icon: 'reactjs', type: 'info'},
+            { label: 'NextJS', icon: 'nextjs', type: 'info'},
+        ],
+    },
+    {
         url: 'https://www.passwordgenerator.cool/',
         image: '/assets/portfolio/00_password.webp',
         title: 'Password Generator',
@@ -16,18 +29,17 @@ const projects = [
         ],
     },
     {
-        url: 'https://epoch.edcilo.com/',
-        image: '/assets/portfolio/01_epoch.webp',
-        title: 'Epoch Converter',
-        description: 'Un sencillo conversor de época que convierte el tiempo de época a tiempo legible por humanos.',
+        url: '/landing/2022',
+        image: '/assets/portfolio/02_landing_2022.webp',
+        title: 'Landing 2022',
+        description: 'Una landing page para el año 2022.',
         tags: [
             { label: 'HTML', icon: 'html5', type: 'info'},
             { label: 'CSS', icon: 'css', type: 'info'},
-            { label: 'JavaScript', icon: 'javascript', type: 'info'},
-            { label: 'ReactJS', icon: 'reactjs', type: 'info'},
-            { label: 'NextJS', icon: 'nextjs', type: 'info'},
-        ],
-    }
+            { label: 'SASS', icon: 'sass', type: 'info'},
+            { label: 'Astro', icon: 'astro', type: 'info'},
+        ]
+    },
 ]
 ---
 
@@ -38,14 +50,16 @@ const projects = [
         <h1>Porfolio</h1>
 
         <div class="container">
-            {projects.map(project => (
-                <ProjectCard
-                    image={project.image}
-                    url={project.url}
-                    name={project.title}
-                    description={project.description}
-                    tags={project.tags} />
-            ))}
+            <div class="grid">
+                {projects.map(project => (
+                    <ProjectCard
+                        image={project.image}
+                        url={project.url}
+                        name={project.title}
+                        description={project.description}
+                        tags={project.tags} />
+                ))}
+            </div>
         </div>
     </div>
 </div>
@@ -70,8 +84,12 @@ const projects = [
     }
 
     .container {
-        @apply max-w-screen-md columns-1 gap-4 px-4;
-        @apply md:columns-2;
+        @apply max-w-screen-md gap-4 px-4;
+    }
+
+    .grid {
+        @apply grid-cols-1 content-center gap-4;
+        @apply md:grid-cols-2;
     }
 }
 </style>

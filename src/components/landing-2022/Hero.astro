@@ -1,0 +1,217 @@
+---
+import { Icon } from 'astro-icon/components';
+import Container from "./Container.astro";
+import Cucu from "./Cucu.astro";
+import Edc from "./Edc.astro";
+
+const social = [
+  {
+    url: "https://github.com/edcilo",
+    icon: "github",
+  },
+  {
+    url: "https://www.instagram.com/edcilo.dev",
+    icon: "instagram",
+  },
+  {
+    url: "https://twitter.com/edcilo",
+    icon: "twitter",
+  },
+  {
+    url: "https://www.linkedin.com/in/edcilo",
+    icon: "linkedin",
+  },
+];
+---
+
+<main>
+    <Container>
+        <div class="container">
+            <div class="logo">
+                <Edc />
+            </div>
+            <div class="cucu">
+                <Cucu />
+            </div>
+
+            <header>
+                <span class="year animated fadeInLeft">
+                    2012<span class="underline"></span>
+                </span>
+                <div>
+                    <h1 class="animated fadeInLeft">Eduardo Cifuentes.</h1>
+                </div>
+                <span class="title animated fadeInLeft">Fullstack Developer</span>
+            </header>
+
+            <footer>
+                <div class="location">Location: Mexico City</div>
+                <div class="social">
+                    {
+                        social.map((item) => (
+                            <a href={item.url} target="_blank">
+                                <Icon class:list={['icon', item.icon]} name={item.icon} />
+                            </a>
+                        ))
+                    }
+                </div>
+            </footer>
+        </div>
+    </Container>
+</main>
+
+<style>
+main {
+    background: var(--color-secondary);
+    background: linear-gradient(
+        90deg,
+        var(--color-secondary) 0%,
+        var(--color-primary) 100%
+    );
+    overflow: hidden;
+}
+
+.container {
+    position: relative;
+    height: 100vh;
+    min-height: 420px;
+    padding: var(--padding-base);
+    width: 100%;
+    display: grid;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.logo {
+    position: absolute;
+    width: 900px;
+    height: 900px;
+    bottom: -120px;
+    left: -20%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    opacity: 0.4;
+}
+
+.cucu {
+    position: absolute;
+    right: -10%;
+    width: 550px;
+    height: 550px;
+}
+
+header {
+    z-index: 100;
+    margin-bottom: 100px;
+}
+
+h1 {
+    --animate-duration: 0.4s;
+    margin: 0 0 var(--margin-sm);
+    font-size: 2.75rem;
+    text-transform: uppercase;
+    padding: 0.5rem 0;
+    line-height: 1;
+    border-radius: 2px;
+    display: inline-block;
+    width: auto;
+    color: var(--color-secondary);
+    background: var(--color-tertiary);
+    padding: 0.5rem;
+}
+
+span {
+    display: inline-block;
+    font-family: var(--font-monospace);
+    font-weight: bold;
+    color: var(--color-tertiary);
+}
+
+.year {
+    --animate-duration: 0.8s;
+    color: var(--color-tertiary);
+}
+
+.underline {
+    display: inline-block;
+    width: 60px;
+    height: 1.5px;
+    background-color: var(--color-tertiary);
+    margin-left: 4px;
+}
+
+.title {
+    --animate-duration: 0.8s;
+    color: var(--color-secondary);
+    background-color: var(--color-tertiary);
+    font-size: 1.25rem;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: var(--padding-base);
+    text-align: right;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+}
+
+.location {
+    font-family: var(--font-monospace);
+    text-align: left;
+}
+
+.social {
+    display: flex;
+    align-items: center;
+}
+
+.social:before {
+    content: " \23af ";
+    margin-right: 1rem;
+}
+
+.social:after {
+    content: " \23af ";
+    margin-left: 1rem;
+}
+
+.social a {
+    text-decoration: none;
+    color: var(--color-dark);
+    margin: 0 var(--margin-sm);
+    display: block;
+    line-height: 0;
+}
+
+.social a:hover {
+    color: var(--color-tertiary);
+}
+
+.icon {
+    width: 1.25rem;
+}
+
+@media (max-width: 1200px) {
+    .logo {
+        display: none;
+    }
+}
+
+@media (max-width: 460px) {
+    footer {
+        flex-direction: column;
+    }
+
+    .location {
+        text-align: center;
+        margin-bottom: var(--margin-base);
+    }
+
+    .social {
+        justify-content: center;
+    }
+}
+</style>
