@@ -1,6 +1,9 @@
 ---
 import { Icon } from 'astro-icon/components';
 import InlineNav from "./InlineNav.astro";
+import config from "../config";
+
+const appVersion = config.app.version;
 
 const socialNav = [
     {
@@ -69,7 +72,7 @@ const poweredBy = [
         <InlineNav items={socialNav} />
     </div>
     <div class="about-container">
-        <p class="rights">&copy; 2010-2024 <a href="/">edcilo.com</a>. All rights reserved.</p>
+        <p class="rights">&copy; 2010-2024 <a href="/">edcilo.com</a> (v {appVersion})</p>
         <span class="powered-by">
             {poweredBy.map(tech => (
                 <a href={tech.url} target="_blank" title={tech.label} aria-label={tech.label}>
