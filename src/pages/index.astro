@@ -4,9 +4,11 @@ import Hero from '../components/Hero.astro';
 import Portfolio from '../components/Portfolio.astro';
 import Skills from '../components/Skills.astro';
 import Layout from '../layouts/Layout.astro';
+
+const description = "Apasionado desarrollador web siempre en busca de nuevas habilidades y conocimientos. Explora mi portafolio y descubre proyectos innovadores y soluciones creativas."
 ---
 
-<Layout title="edcilo.com">
+<Layout title="edcilo.com" description={description}>
 	<main>
 		<Hero />
 

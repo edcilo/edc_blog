@@ -9,6 +9,7 @@ interface Props {
     frontmatter: {
         title: string;
         pubDate: Date;
+        description: string;
         author: {
             name: string;
             email: string;
@@ -25,7 +26,7 @@ interface Props {
 const { title, frontmatter } = Astro.props;
 ---
 
-<Layout title={title}>
+<Layout title={title} description={frontmatter.description}>
     <div class="cover" style={`background-image: url(${frontmatter.image.url})`}></div>
 
     <div class="post">
