@@ -1,15 +1,23 @@
 ---
-import config from "../config";
+interface Props { 
+  measurementId: string
+}
 
-const ga4Id = config.ga4.id;
+const { measurementId } = Astro.props
 ---
 
 <!-- Google tag (gtag.js) -->
-<script async src={`https://www.googletagmanager.com/gtag/js?id=G-${ga4Id}`}></script>
-<script is:inline define:vars={{ ga4Id }}>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', `G-${ga4Id}`)
+<script
+  type='text/partytown'
+  src={`https://www.googletagmanager.com/gtag/js?id=G-${measurementId}`}></script>
+<script
+  type='text/partytown'
+  define:vars={{ measurementId }}
+>
+  window.dataLayer = window.dataLayer || []
+  function gtag() {
+    dataLayer.push(arguments) // eslint-disable-line
+  }
+  gtag('js', new Date())
+  gtag('config', `G-${measurementId}`)
 </script>

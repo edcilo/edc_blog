@@ -4,6 +4,7 @@ import '@fontsource-variable/jetbrains-mono';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import GA4 from '../components/GA4.astro';
+import config from "../config";
 
 interface Props {
 	title: string;
@@ -11,6 +12,7 @@ interface Props {
 }
 
 const { title, description } = Astro.props;
+const ga4Id = config.ga4.id;
 ---
 
 <!doctype html>
@@ -22,7 +24,7 @@ const { title, description } = Astro.props;
 		{description && <meta name="description" content={description} />}
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<title>{title}</title>
-		<GA4 />
+		<GA4 measurementId={ga4Id} />
 	</head>
 	<body>
 		<Header />
