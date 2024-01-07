@@ -108,8 +108,8 @@ const skills = [
 ]
 ---
 
-<div id="skills" class="skills">
-    <h1>Habilidades</h1>
+<section id="skills" class="skills">
+    <h2 class="title">Habilidades</h2>
 
     <div class="container">
         <div class="grid">
@@ -120,14 +120,14 @@ const skills = [
             ))}
         </div>
     </div>
-</div>
+</section>
 
 <style>
     .skills {
         @apply relative flex flex-col items-center py-16 border-b;
         @apply dark:border-zinc-700;
 
-        h1 {
+        .title {
             @apply font-mono my-9 text-4xl font-medium text-center;
             @apply dark:!text-slate-100;
         }

@@ -43,11 +43,11 @@ const projects = [
 ]
 ---
 
-<div id="portfolio" class="portfolio">
+<section id="portfolio" class="portfolio">
 	<div class="background"></div>
 
     <div class="content">
-        <h1>Porfolio</h1>
+        <h2 class="title">Porfolio</h2>
 
         <div class="container">
             <div class="grid">
@@ -62,13 +62,13 @@ const projects = [
             </div>
         </div>
     </div>
-</div>
+</section>
 
 <style>
 .portfolio {
     @apply relative flex flex-col items-center py-16;
 
-    h1 {
+    .title {
         @apply font-mono my-9 text-4xl font-medium text-center;
         @apply dark:!text-slate-100;
     }
