@@ -26,7 +26,7 @@ interface Props {
 const { frontmatter } = Astro.props;
 ---
 
-<Layout title={frontmatter.title} description={frontmatter.description}>
+<Layout title={frontmatter.title} description={frontmatter.description} image={frontmatter.image.url}>
     <div class="cover" style={`background-image: url(${frontmatter.image.url})`}></div>
 
     <div class="post">
