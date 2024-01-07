@@ -37,11 +37,12 @@ const socialNav = [
 ---
 
 <header class="header">
-    <h1 class="mx-2">
+    <div class="title">
         <a href="/" aria-label="edcilo.com logo">
             <Logo />
+            <span>edcilo.com</span>
         </a>
-    </h1>
+    </div>
 
     <div class="nav">
         <InlineNav items={siteNav} />
@@ -61,6 +62,14 @@ const socialNav = [
         @apply p-3 border-b bg-white/80 backdrop-blur-sm backdrop-saturate-200;
         @apply dark:border-zinc-700 dark:bg-zinc-950/80;
         @apply md:justify-between md:flex-row;
+
+        .title {
+            @apply mx-2;
+
+            span {
+                @apply absolute size-0 m-0 p-0 overflow-hidden border-0;
+            }
+        }
 
         .nav {
             @apply hidden;
