@@ -1,4 +1,5 @@
 /*
     X-Frame-Options: DENY
     X-Content-Type-Options: nosniff
+    Referrer-Policy: origin
     Content-Security-Policy: default-src edcilo.com; script-src https://www.googletagmanager.com; script-src https://www.google-analytics.com
