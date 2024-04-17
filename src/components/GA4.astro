@@ -1,5 +1,5 @@
 ---
-interface Props { 
+interface Props {
   measurementId: string
 }
 
@@ -8,9 +8,11 @@ const { measurementId } = Astro.props
 
 <!-- Google tag (gtag.js) -->
 <script
+  is:inline
   type='text/partytown'
   src={`https://www.googletagmanager.com/gtag/js?id=G-${measurementId}`}></script>
 <script
+  is:inline
   type='text/partytown'
   define:vars={{ measurementId }}
 >
