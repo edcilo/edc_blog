@@ -1,2 +1,3 @@
 /*
     X-Frame-Options: DENY
+    Content-Security-Policy: default-src edcilo.com; script-src https://www.googletagmanager.com; script-src https://www.google-analytics.com
