@@ -3,4 +3,4 @@
     X-Content-Type-Options: nosniff
     Referrer-Policy: strict-origin
     Content-Security-Policy: default-src edcilo.com; script-src https://www.googletagmanager.com; script-src https://www.google-analytics.com
-    Permissions-Policy:
+    Permissions-Policy: accelerometer=(), camera=(), geolocation=(), gyroscope=(), magnetometer=(), microphone=(), payment=()
